@@ -1,0 +1,3223 @@
+{
+  "generatedAt": "2026-10-16T14:33:56.763Z",
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36",
+    "tfVersion": "4.22.0",
+    "tfBackend": "webgl",
+    "webglRenderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4 Pro, Unspecified Version)"
+  },
+  "selfChecks": {
+    "passed": 11,
+    "failed": 0,
+    "pending": 0,
+    "checks": [
+      {
+        "name": "computeBaselineRMSE: toy split matches the hand-computed value",
+        "status": "PASS",
+        "detail": "rmse=1.0000"
+      },
+      {
+        "name": "computeBaselineRMSE: empty split returns 0 (no division by zero)",
+        "status": "PASS",
+        "detail": "guarded"
+      },
+      {
+        "name": "fmt: formats numbers and guards non-finite input",
+        "status": "PASS",
+        "detail": "ok"
+      },
+      {
+        "name": "movieTitle: resolves ids and falls back for unknown ids",
+        "status": "PASS",
+        "detail": "ok"
+      },
+      {
+        "name": "predictRating: clamps to [1, 5] and falls back to the global mean",
+        "status": "PASS",
+        "detail": "clamped=5, fallback=3"
+      },
+      {
+        "name": "initializeFactors: allocates tf.Variable factors and the global mean",
+        "status": "PASS",
+        "detail": "user [944,4], item [4,4]"
+      },
+      {
+        "name": "trainMF: returns one finite history row per epoch",
+        "status": "PASS",
+        "detail": "e1:1.1614 e2:1.1519 e3:1.1330"
+      },
+      {
+        "name": "selectBestCheckpoint: smallest valRMSE wins, ties keep the earliest epoch",
+        "status": "PASS",
+        "detail": "best epoch 1"
+      },
+      {
+        "name": "recommendTopK: excludes train+val items but allows test-rated items",
+        "status": "PASS",
+        "detail": "3, 4, 5"
+      },
+      {
+        "name": "recallAtK: relevant movie at rank 1 scores 1.0; at rank 11 scores 0.0",
+        "status": "PASS",
+        "detail": "rank1=1.0000 rank11=0.0000"
+      },
+      {
+        "name": "recallAtK: empty test set returns 0 without dividing by zero",
+        "status": "PASS",
+        "detail": "guarded"
+      }
+    ]
+  },
+  "runs": [
+    {
+      "label": "default",
+      "config": {
+        "factors": 16,
+        "epochs": 20,
+        "learningRate": 0.01,
+        "regularization": 0.05,
+        "batchSize": 64,
+        "seed": 20261016
+      },
+      "durationSeconds": 41.24440000003576,
+      "history": [
+        {
+          "epoch": 1,
+          "trainRMSE": 0.8829628470349585,
+          "valRMSE": 1.0256105604904577
+        },
+        {
+          "epoch": 2,
+          "trainRMSE": 0.7994922964072045,
+          "valRMSE": 1.0041722045576893
+        },
+        {
+          "epoch": 3,
+          "trainRMSE": 0.7542914557793216,
+          "valRMSE": 1.0049108087997551
+        },
+        {
+          "epoch": 4,
+          "trainRMSE": 0.7332341687027817,
+          "valRMSE": 1.0121377791523378
+        },
+        {
+          "epoch": 5,
+          "trainRMSE": 0.7230501493259278,
+          "valRMSE": 1.0183522506950464
+        },
+        {
+          "epoch": 6,
+          "trainRMSE": 0.71617286399922,
+          "valRMSE": 1.0204869610422103
+        },
+        {
+          "epoch": 7,
+          "trainRMSE": 0.7140752277867652,
+          "valRMSE": 1.0265518443397934
+        },
+        {
+          "epoch": 8,
+          "trainRMSE": 0.7097758769511042,
+          "valRMSE": 1.025482348018142
+        },
+        {
+          "epoch": 9,
+          "trainRMSE": 0.7058360709738156,
+          "valRMSE": 1.0306838244231007
+        },
+        {
+          "epoch": 10,
+          "trainRMSE": 0.7036635985109538,
+          "valRMSE": 1.0263475004244431
+        },
+        {
+          "epoch": 11,
+          "trainRMSE": 0.7039054989149213,
+          "valRMSE": 1.035100510733995
+        },
+        {
+          "epoch": 12,
+          "trainRMSE": 0.7031059474483013,
+          "valRMSE": 1.0273052832070368
+        },
+        {
+          "epoch": 13,
+          "trainRMSE": 0.701148816422894,
+          "valRMSE": 1.0280463423395274
+        },
+        {
+          "epoch": 14,
+          "trainRMSE": 0.6994887954681649,
+          "valRMSE": 1.0339340191934552
+        },
+        {
+          "epoch": 15,
+          "trainRMSE": 0.6998490417716466,
+          "valRMSE": 1.0308033525017906
+        },
+        {
+          "epoch": 16,
+          "trainRMSE": 0.697999370476294,
+          "valRMSE": 1.0293680416166142
+        },
+        {
+          "epoch": 17,
+          "trainRMSE": 0.6993202689865478,
+          "valRMSE": 1.0293119310005343
+        },
+        {
+          "epoch": 18,
+          "trainRMSE": 0.6998185297208916,
+          "valRMSE": 1.0344951317858382
+        },
+        {
+          "epoch": 19,
+          "trainRMSE": 0.6991094578407293,
+          "valRMSE": 1.03213324436269
+        },
+        {
+          "epoch": 20,
+          "trainRMSE": 0.6963764579893266,
+          "valRMSE": 1.0317422096766196
+        }
+      ],
+      "bestCheckpoint": {
+        "epoch": 2,
+        "trainRMSE": 0.7994922964072045,
+        "valRMSE": 1.0041722045576893
+      },
+      "baselineValidationRMSE": 1.1829947710600353,
+      "baselineTestRMSE": 1.2289001371836759,
+      "selectedModelTestRMSE": 1.0502908122290158,
+      "recall": {
+        "overallRecall": 0.013399956978645483,
+        "evaluableUsers": 861,
+        "totalHits": 102,
+        "totalRelevant": 5142,
+        "usersWithHits": 87,
+        "unseenRelevantIds": [
+          913,
+          1106,
+          1130,
+          1458,
+          1498,
+          1525,
+          1613,
+          1625,
+          1645,
+          1646,
+          1650,
+          1651,
+          1674
+        ],
+        "usersWithoutRelevant": [
+          61,
+          76,
+          82,
+          93,
+          102,
+          105,
+          107,
+          108,
+          110,
+          111,
+          120,
+          129,
+          149,
+          155,
+          161,
+          202,
+          209,
+          228,
+          238,
+          240,
+          241,
+          281,
+          284,
+          289,
+          293,
+          302,
+          309,
+          362,
+          380,
+          386,
+          395,
+          399,
+          405,
+          441,
+          443,
+          444,
+          446,
+          453,
+          465,
+          502,
+          510,
+          515,
+          523,
+          544,
+          549,
+          550,
+          572,
+          578,
+          580,
+          584,
+          587,
+          596,
+          631,
+          646,
+          647,
+          651,
+          656,
+          675,
+          685,
+          698,
+          722,
+          723,
+          724,
+          732,
+          733,
+          750,
+          754,
+          769,
+          774,
+          782,
+          809,
+          814,
+          822,
+          824,
+          827,
+          856,
+          873,
+          909,
+          925,
+          926,
+          930,
+          933
+        ]
+      },
+      "data": {
+        "users": 943,
+        "movies": 1682,
+        "ratings": 100000,
+        "sparsity": 0.9369533063577546,
+        "trainRatings": 79619,
+        "validationRatings": 9596,
+        "testRatings": 10785,
+        "trainingMean": 3.5806026199776437,
+        "usersAbsentFromTraining": 0,
+        "moviesAbsentFromTraining": 71,
+        "validationRowsOnUnseenMovies": 35,
+        "testRowsOnUnseenMovies": 53
+      },
+      "userAnalysis": [
+        {
+          "userId": 1,
+          "trainRatings": 217,
+          "validationRatings": 27,
+          "testRatings": 28,
+          "relevantTestMovies": 19,
+          "hitsAt10": 2,
+          "recallAt10": 0.10526315789473684,
+          "historyGenres": [
+            {
+              "genre": "Drama",
+              "count": 93,
+              "share": 0.38114754098360654
+            },
+            {
+              "genre": "Comedy",
+              "count": 81,
+              "share": 0.3319672131147541
+            },
+            {
+              "genre": "Action",
+              "count": 69,
+              "share": 0.2827868852459016
+            },
+            {
+              "genre": "Thriller",
+              "count": 47,
+              "share": 0.19262295081967212
+            },
+            {
+              "genre": "Romance",
+              "count": 39,
+              "share": 0.1598360655737705
+            },
+            {
+              "genre": "Adventure",
+              "count": 38,
+              "share": 0.1557377049180328
+            },
+            {
+              "genre": "Sci-Fi",
+              "count": 37,
+              "share": 0.15163934426229508
+            },
+            {
+              "genre": "Children's",
+              "count": 24,
+              "share": 0.09836065573770492
+            },
+            {
+              "genre": "War",
+              "count": 24,
+              "share": 0.09836065573770492
+            },
+            {
+              "genre": "Crime",
+              "count": 22,
+              "share": 0.09016393442622951
+            },
+            {
+              "genre": "Horror",
+              "count": 13,
+              "share": 0.05327868852459016
+            },
+            {
+              "genre": "Musical",
+              "count": 12,
+              "share": 0.04918032786885246
+            },
+            {
+              "genre": "Animation",
+              "count": 9,
+              "share": 0.036885245901639344
+            },
+            {
+              "genre": "Western",
+              "count": 6,
+              "share": 0.02459016393442623
+            },
+            {
+              "genre": "Mystery",
+              "count": 5,
+              "share": 0.020491803278688523
+            },
+            {
+              "genre": "Documentary",
+              "count": 4,
+              "share": 0.01639344262295082
+            },
+            {
+              "genre": "Fantasy",
+              "count": 2,
+              "share": 0.00819672131147541
+            },
+            {
+              "genre": "Film-Noir",
+              "count": 1,
+              "share": 0.004098360655737705
+            }
+          ],
+          "recommendationGenres": [
+            {
+              "genre": "Comedy",
+              "count": 4,
+              "share": 0.4
+            },
+            {
+              "genre": "Drama",
+              "count": 3,
+              "share": 0.3
+            },
+            {
+              "genre": "Romance",
+              "count": 3,
+              "share": 0.3
+            },
+            {
+              "genre": "Animation",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Documentary",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Crime",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "Thriller",
+              "count": 1,
+              "share": 0.1
+            }
+          ],
+          "historyMedianPopularity": 106,
+          "recommendationMedianPopularity": 9.5,
+          "excludedRatedCount": 0,
+          "highRatedHistoryExamples": [
+            {
+              "movieId": 9,
+              "title": "Dead Man Walking (1995)",
+              "rating": 5,
+              "genres": [
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 16,
+              "title": "French Twist (Gazon maudit) (1995)",
+              "rating": 5,
+              "genres": [
+                "Comedy",
+                "Romance"
+              ]
+            },
+            {
+              "movieId": 44,
+              "title": "Dolores Claiborne (1994)",
+              "rating": 5,
+              "genres": [
+                "Drama",
+                "Thriller"
+              ]
+            },
+            {
+              "movieId": 86,
+              "title": "Remains of the Day, The (1993)",
+              "rating": 5,
+              "genres": [
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 87,
+              "title": "Searching for Bobby Fischer (1993)",
+              "rating": 5,
+              "genres": [
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 51,
+              "title": "Legends of the Fall (1994)",
+              "rating": 4,
+              "genres": [
+                "Drama",
+                "Romance",
+                "War",
+                "Western"
+              ]
+            },
+            {
+              "movieId": 75,
+              "title": "Brother Minister: The Assassination of Malcolm X (1994)",
+              "rating": 4,
+              "genres": [
+                "Documentary"
+              ]
+            },
+            {
+              "movieId": 76,
+              "title": "Carlito's Way (1993)",
+              "rating": 4,
+              "genres": [
+                "Crime",
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 241,
+              "title": "Last of the Mohicans, The (1992)",
+              "rating": 4,
+              "genres": [
+                "Action",
+                "Romance",
+                "War"
+              ]
+            },
+            {
+              "movieId": 66,
+              "title": "While You Were Sleeping (1995)",
+              "rating": 4,
+              "genres": [
+                "Comedy",
+                "Romance"
+              ]
+            }
+          ],
+          "top10": [
+            {
+              "movieId": 1462,
+              "title": "Thieves (Voleurs, Les) (1996)",
+              "score": 4.8804402351379395,
+              "genres": [
+                "Crime",
+                "Drama",
+                "Romance"
+              ],
+              "trainingRatings": 6,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1467,
+              "title": "Saint of Fort Washington, The (1993)",
+              "score": 4.809263706207275,
+              "genres": [
+                "Drama"
+              ],
+              "trainingRatings": 1,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1251,
+              "title": "A Chef in Love (1996)",
+              "score": 4.8022780418396,
+              "genres": [
+                "Comedy"
+              ],
+              "trainingRatings": 8,
+              "relevantTest": false
+            },
+            {
+              "movieId": 694,
+              "title": "Persuasion (1995)",
+              "score": 4.79863166809082,
+              "genres": [
+                "Romance"
+              ],
+              "trainingRatings": 38,
+              "relevantTest": false
+            },
+            {
+              "movieId": 256,
+              "title": "When the Cats Away (Chacun cherche son chat) (1996)",
+              "score": 4.790683269500732,
+              "genres": [
+                "Comedy",
+                "Romance"
+              ],
+              "trainingRatings": 11,
+              "relevantTest": true
+            },
+            {
+              "movieId": 169,
+              "title": "Wrong Trousers, The (1993)",
+              "score": 4.7591552734375,
+              "genres": [
+                "Animation",
+                "Comedy"
+              ],
+              "trainingRatings": 101,
+              "relevantTest": true
+            },
+            {
+              "movieId": 1142,
+              "title": "When We Were Kings (1996)",
+              "score": 4.751642227172852,
+              "genres": [
+                "Documentary"
+              ],
+              "trainingRatings": 34,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1514,
+              "title": "Dream With the Fishes (1997)",
+              "score": 4.727272033691406,
+              "genres": [
+                "Drama"
+              ],
+              "trainingRatings": 4,
+              "relevantTest": false
+            },
+            {
+              "movieId": 850,
+              "title": "Perfect Candidate, A (1996)",
+              "score": 4.685086727142334,
+              "genres": [
+                "Documentary"
+              ],
+              "trainingRatings": 3,
+              "relevantTest": false
+            },
+            {
+              "movieId": 408,
+              "title": "Close Shave, A (1995)",
+              "score": 4.671736240386963,
+              "genres": [
+                "Animation",
+                "Comedy",
+                "Thriller"
+              ],
+              "trainingRatings": 96,
+              "relevantTest": false
+            }
+          ]
+        },
+        {
+          "userId": 19,
+          "trainRatings": 16,
+          "validationRatings": 2,
+          "testRatings": 2,
+          "relevantTestMovies": 1,
+          "hitsAt10": 0,
+          "recallAt10": 0,
+          "historyGenres": [
+            {
+              "genre": "Comedy",
+              "count": 10,
+              "share": 0.5555555555555556
+            },
+            {
+              "genre": "Drama",
+              "count": 10,
+              "share": 0.5555555555555556
+            },
+            {
+              "genre": "Action",
+              "count": 4,
+              "share": 0.2222222222222222
+            },
+            {
+              "genre": "Romance",
+              "count": 4,
+              "share": 0.2222222222222222
+            },
+            {
+              "genre": "Adventure",
+              "count": 3,
+              "share": 0.16666666666666666
+            },
+            {
+              "genre": "Horror",
+              "count": 2,
+              "share": 0.1111111111111111
+            },
+            {
+              "genre": "Thriller",
+              "count": 2,
+              "share": 0.1111111111111111
+            },
+            {
+              "genre": "Children's",
+              "count": 1,
+              "share": 0.05555555555555555
+            },
+            {
+              "genre": "Musical",
+              "count": 1,
+              "share": 0.05555555555555555
+            },
+            {
+              "genre": "Sci-Fi",
+              "count": 1,
+              "share": 0.05555555555555555
+            },
+            {
+              "genre": "War",
+              "count": 1,
+              "share": 0.05555555555555555
+            }
+          ],
+          "recommendationGenres": [
+            {
+              "genre": "Action",
+              "count": 4,
+              "share": 0.4
+            },
+            {
+              "genre": "Horror",
+              "count": 4,
+              "share": 0.4
+            },
+            {
+              "genre": "Children's",
+              "count": 3,
+              "share": 0.3
+            },
+            {
+              "genre": "Adventure",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Comedy",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Sci-Fi",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Thriller",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Drama",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "Romance",
+              "count": 1,
+              "share": 0.1
+            }
+          ],
+          "historyMedianPopularity": 193.5,
+          "recommendationMedianPopularity": 12.5,
+          "excludedRatedCount": 0,
+          "highRatedHistoryExamples": [
+            {
+              "movieId": 4,
+              "title": "Get Shorty (1995)",
+              "rating": 4,
+              "genres": [
+                "Action",
+                "Comedy",
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 153,
+              "title": "Fish Called Wanda, A (1988)",
+              "rating": 4,
+              "genres": [
+                "Comedy"
+              ]
+            },
+            {
+              "movieId": 211,
+              "title": "M*A*S*H (1970)",
+              "rating": 4,
+              "genres": [
+                "Comedy",
+                "War"
+              ]
+            },
+            {
+              "movieId": 8,
+              "title": "Babe (1995)",
+              "rating": 5,
+              "genres": [
+                "Children's",
+                "Comedy",
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 202,
+              "title": "Groundhog Day (1993)",
+              "rating": 4,
+              "genres": [
+                "Comedy",
+                "Romance"
+              ]
+            },
+            {
+              "movieId": 325,
+              "title": "Crash (1996)",
+              "rating": 4,
+              "genres": [
+                "Drama",
+                "Thriller"
+              ]
+            },
+            {
+              "movieId": 310,
+              "title": "Rainmaker, The (1997)",
+              "rating": 4,
+              "genres": [
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 258,
+              "title": "Contact (1997)",
+              "rating": 4,
+              "genres": [
+                "Drama",
+                "Sci-Fi"
+              ]
+            },
+            {
+              "movieId": 319,
+              "title": "Everyone Says I Love You (1996)",
+              "rating": 4,
+              "genres": [
+                "Comedy",
+                "Musical",
+                "Romance"
+              ]
+            },
+            {
+              "movieId": 887,
+              "title": "Eve's Bayou (1997)",
+              "rating": 4,
+              "genres": [
+                "Drama"
+              ]
+            }
+          ],
+          "top10": [
+            {
+              "movieId": 590,
+              "title": "Hellraiser: Bloodline (1996)",
+              "score": 5.078543663024902,
+              "genres": [
+                "Action",
+                "Horror",
+                "Sci-Fi"
+              ],
+              "trainingRatings": 9,
+              "relevantTest": false
+            },
+            {
+              "movieId": 901,
+              "title": "Mr. Magoo (1997)",
+              "score": 5.034073829650879,
+              "genres": [
+                "Comedy"
+              ],
+              "trainingRatings": 8,
+              "relevantTest": false
+            },
+            {
+              "movieId": 398,
+              "title": "Super Mario Bros. (1993)",
+              "score": 5.015254020690918,
+              "genres": [
+                "Action",
+                "Adventure",
+                "Children's",
+                "Sci-Fi"
+              ],
+              "trainingRatings": 15,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1089,
+              "title": "Speed 2: Cruise Control (1997)",
+              "score": 4.982739448547363,
+              "genres": [
+                "Action",
+                "Romance",
+                "Thriller"
+              ],
+              "trainingRatings": 26,
+              "relevantTest": false
+            },
+            {
+              "movieId": 681,
+              "title": "Wishmaster (1997)",
+              "score": 4.942544460296631,
+              "genres": [
+                "Horror"
+              ],
+              "trainingRatings": 20,
+              "relevantTest": false
+            },
+            {
+              "movieId": 406,
+              "title": "Thinner (1996)",
+              "score": 4.904266834259033,
+              "genres": [
+                "Horror",
+                "Thriller"
+              ],
+              "trainingRatings": 33,
+              "relevantTest": false
+            },
+            {
+              "movieId": 112,
+              "title": "Flipper (1996)",
+              "score": 4.895659446716309,
+              "genres": [
+                "Adventure",
+                "Children's"
+              ],
+              "trainingRatings": 14,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1052,
+              "title": "Dracula: Dead and Loving It (1995)",
+              "score": 4.863317012786865,
+              "genres": [
+                "Comedy",
+                "Horror"
+              ],
+              "trainingRatings": 10,
+              "relevantTest": false
+            },
+            {
+              "movieId": 726,
+              "title": "Fluke (1995)",
+              "score": 4.844559669494629,
+              "genres": [
+                "Children's",
+                "Drama"
+              ],
+              "trainingRatings": 9,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1407,
+              "title": "Specialist, The (1994)",
+              "score": 4.833547592163086,
+              "genres": [
+                "Action"
+              ],
+              "trainingRatings": 11,
+              "relevantTest": false
+            }
+          ]
+        }
+      ],
+      "catalogue": {
+        "moviesAppearingInAnyTop10": 779,
+        "mostRecommended": [
+          {
+            "movieId": 1449,
+            "title": "Pather Panchali (1955)",
+            "listCount": 204,
+            "listShare": 0.2163308589607635,
+            "trainingRatings": 7
+          },
+          {
+            "movieId": 169,
+            "title": "Wrong Trousers, The (1993)",
+            "listCount": 200,
+            "listShare": 0.21208907741251326,
+            "trainingRatings": 101
+          },
+          {
+            "movieId": 850,
+            "title": "Perfect Candidate, A (1996)",
+            "listCount": 177,
+            "listShare": 0.18769883351007424,
+            "trainingRatings": 3
+          },
+          {
+            "movieId": 114,
+            "title": "Wallace & Gromit: The Best of Aardman Animation (1996)",
+            "listCount": 165,
+            "listShare": 0.17497348886532343,
+            "trainingRatings": 57
+          },
+          {
+            "movieId": 487,
+            "title": "Roman Holiday (1953)",
+            "listCount": 154,
+            "listShare": 0.1633085896076352,
+            "trainingRatings": 56
+          },
+          {
+            "movieId": 1500,
+            "title": "Santa with Muscles (1996)",
+            "listCount": 152,
+            "listShare": 0.16118769883351008,
+            "trainingRatings": 2
+          },
+          {
+            "movieId": 64,
+            "title": "Shawshank Redemption, The (1994)",
+            "listCount": 137,
+            "listShare": 0.14528101802757157,
+            "trainingRatings": 255
+          },
+          {
+            "movieId": 480,
+            "title": "North by Northwest (1959)",
+            "listCount": 130,
+            "listShare": 0.1378579003181336,
+            "trainingRatings": 151
+          },
+          {
+            "movieId": 1142,
+            "title": "When We Were Kings (1996)",
+            "listCount": 126,
+            "listShare": 0.13361611876988336,
+            "trainingRatings": 34
+          },
+          {
+            "movieId": 74,
+            "title": "Faster Pussycat! Kill! Kill! (1965)",
+            "listCount": 125,
+            "listShare": 0.1325556733828208,
+            "trainingRatings": 2
+          }
+        ]
+      },
+      "manualCheck": {
+        "userId": 1,
+        "movieId": 1462,
+        "title": "Thieves (Voleurs, Les) (1996)",
+        "userVector": [
+          -0.13490964472293854,
+          0.060598794370889664,
+          -0.4743316173553467,
+          0.1724247932434082,
+          0.2249072641134262,
+          0.353410005569458,
+          0.5943683981895447,
+          0.2221212387084961,
+          -0.366758793592453,
+          -0.5032650828361511,
+          -0.18451754748821259,
+          -0.1867486834526062,
+          0.07027727365493774,
+          0.2597528100013733,
+          0.037412531673908234,
+          -0.23150737583637238
+        ],
+        "itemVector": [
+          0.27261337637901306,
+          0.11587659269571304,
+          -0.6448866128921509,
+          0.25833529233932495,
+          0.2940245270729065,
+          0.6537492871284485,
+          0.41663557291030884,
+          -0.2033403515815735,
+          -0.45112481713294983,
+          -0.17882540822029114,
+          -0.38066866993904114,
+          -0.6036549210548401,
+          -0.2958337962627411,
+          -0.062368687242269516,
+          -0.3425898253917694,
+          -0.3926740884780884
+        ],
+        "products": [
+          -0.03677817375401338,
+          0.00702198181316685,
+          0.3058901101039453,
+          0.04454340936908352,
+          0.06612825196621142,
+          0.23104153920509418,
+          0.24763501809948352,
+          -0.045166210772720206,
+          0.16545399369129665,
+          0.08999658388119336,
+          0.07024004938275175,
+          0.11273176176667832,
+          -0.020790392656335754,
+          -0.016200441767276308,
+          -0.012817152693628264,
+          0.09090694778250175
+        ],
+        "dot": 1.2998372754174325,
+        "globalMean": 3.5806026199776437,
+        "unclampedScore": 4.880439895395076,
+        "clampedPrediction": 4.880439851613691,
+        "displayedScore": 4.8804402351379395
+      },
+      "tfNumTensors": 27
+    },
+    {
+      "label": "reg-0.10",
+      "config": {
+        "factors": 16,
+        "epochs": 20,
+        "learningRate": 0.01,
+        "regularization": 0.1,
+        "batchSize": 64,
+        "seed": 20261016
+      },
+      "durationSeconds": 40.87030000001192,
+      "history": [
+        {
+          "epoch": 1,
+          "trainRMSE": 0.9235397759872922,
+          "valRMSE": 1.0366198287718966
+        },
+        {
+          "epoch": 2,
+          "trainRMSE": 0.8718542363145215,
+          "valRMSE": 1.0089510614948463
+        },
+        {
+          "epoch": 3,
+          "trainRMSE": 0.8414493560375098,
+          "valRMSE": 1.0003507118351076
+        },
+        {
+          "epoch": 4,
+          "trainRMSE": 0.8216580935089632,
+          "valRMSE": 0.9998751800838346
+        },
+        {
+          "epoch": 5,
+          "trainRMSE": 0.8099809992292388,
+          "valRMSE": 1.003836484629763
+        },
+        {
+          "epoch": 6,
+          "trainRMSE": 0.8008398267209486,
+          "valRMSE": 0.9987064578384495
+        },
+        {
+          "epoch": 7,
+          "trainRMSE": 0.797403721154732,
+          "valRMSE": 1.0054255763034718
+        },
+        {
+          "epoch": 8,
+          "trainRMSE": 0.792394495899778,
+          "valRMSE": 1.003252581032447
+        },
+        {
+          "epoch": 9,
+          "trainRMSE": 0.787811798858028,
+          "valRMSE": 1.0085661088744524
+        },
+        {
+          "epoch": 10,
+          "trainRMSE": 0.786558426977925,
+          "valRMSE": 1.0077933967613228
+        },
+        {
+          "epoch": 11,
+          "trainRMSE": 0.7842748448841868,
+          "valRMSE": 1.007701601536061
+        },
+        {
+          "epoch": 12,
+          "trainRMSE": 0.7822823760543007,
+          "valRMSE": 1.0013383016331827
+        },
+        {
+          "epoch": 13,
+          "trainRMSE": 0.783672353922907,
+          "valRMSE": 1.0050043416285324
+        },
+        {
+          "epoch": 14,
+          "trainRMSE": 0.7824659040901976,
+          "valRMSE": 1.0047595483269733
+        },
+        {
+          "epoch": 15,
+          "trainRMSE": 0.7816795694008831,
+          "valRMSE": 0.9990522841001938
+        },
+        {
+          "epoch": 16,
+          "trainRMSE": 0.7798329662937128,
+          "valRMSE": 1.0035952668978092
+        },
+        {
+          "epoch": 17,
+          "trainRMSE": 0.783047629733475,
+          "valRMSE": 1.002648422783726
+        },
+        {
+          "epoch": 18,
+          "trainRMSE": 0.7828893627571123,
+          "valRMSE": 1.0037933167342452
+        },
+        {
+          "epoch": 19,
+          "trainRMSE": 0.7810912543186549,
+          "valRMSE": 1.001288954206821
+        },
+        {
+          "epoch": 20,
+          "trainRMSE": 0.7804546121991214,
+          "valRMSE": 0.9996324698257453
+        }
+      ],
+      "bestCheckpoint": {
+        "epoch": 6,
+        "trainRMSE": 0.8008398267209486,
+        "valRMSE": 0.9987064578384495
+      },
+      "baselineValidationRMSE": 1.1829947710600353,
+      "baselineTestRMSE": 1.2289001371836759,
+      "selectedModelTestRMSE": 1.0443730989960514,
+      "recall": {
+        "overallRecall": 0.008011779931305812,
+        "evaluableUsers": 861,
+        "totalHits": 59,
+        "totalRelevant": 5142,
+        "usersWithHits": 48,
+        "unseenRelevantIds": [
+          913,
+          1106,
+          1130,
+          1458,
+          1498,
+          1525,
+          1613,
+          1625,
+          1645,
+          1646,
+          1650,
+          1651,
+          1674
+        ],
+        "usersWithoutRelevant": [
+          61,
+          76,
+          82,
+          93,
+          102,
+          105,
+          107,
+          108,
+          110,
+          111,
+          120,
+          129,
+          149,
+          155,
+          161,
+          202,
+          209,
+          228,
+          238,
+          240,
+          241,
+          281,
+          284,
+          289,
+          293,
+          302,
+          309,
+          362,
+          380,
+          386,
+          395,
+          399,
+          405,
+          441,
+          443,
+          444,
+          446,
+          453,
+          465,
+          502,
+          510,
+          515,
+          523,
+          544,
+          549,
+          550,
+          572,
+          578,
+          580,
+          584,
+          587,
+          596,
+          631,
+          646,
+          647,
+          651,
+          656,
+          675,
+          685,
+          698,
+          722,
+          723,
+          724,
+          732,
+          733,
+          750,
+          754,
+          769,
+          774,
+          782,
+          809,
+          814,
+          822,
+          824,
+          827,
+          856,
+          873,
+          909,
+          925,
+          926,
+          930,
+          933
+        ]
+      },
+      "data": {
+        "users": 943,
+        "movies": 1682,
+        "ratings": 100000,
+        "sparsity": 0.9369533063577546,
+        "trainRatings": 79619,
+        "validationRatings": 9596,
+        "testRatings": 10785,
+        "trainingMean": 3.5806026199776437,
+        "usersAbsentFromTraining": 0,
+        "moviesAbsentFromTraining": 71,
+        "validationRowsOnUnseenMovies": 35,
+        "testRowsOnUnseenMovies": 53
+      },
+      "userAnalysis": [
+        {
+          "userId": 1,
+          "trainRatings": 217,
+          "validationRatings": 27,
+          "testRatings": 28,
+          "relevantTestMovies": 19,
+          "hitsAt10": 0,
+          "recallAt10": 0,
+          "historyGenres": [
+            {
+              "genre": "Drama",
+              "count": 93,
+              "share": 0.38114754098360654
+            },
+            {
+              "genre": "Comedy",
+              "count": 81,
+              "share": 0.3319672131147541
+            },
+            {
+              "genre": "Action",
+              "count": 69,
+              "share": 0.2827868852459016
+            },
+            {
+              "genre": "Thriller",
+              "count": 47,
+              "share": 0.19262295081967212
+            },
+            {
+              "genre": "Romance",
+              "count": 39,
+              "share": 0.1598360655737705
+            },
+            {
+              "genre": "Adventure",
+              "count": 38,
+              "share": 0.1557377049180328
+            },
+            {
+              "genre": "Sci-Fi",
+              "count": 37,
+              "share": 0.15163934426229508
+            },
+            {
+              "genre": "Children's",
+              "count": 24,
+              "share": 0.09836065573770492
+            },
+            {
+              "genre": "War",
+              "count": 24,
+              "share": 0.09836065573770492
+            },
+            {
+              "genre": "Crime",
+              "count": 22,
+              "share": 0.09016393442622951
+            },
+            {
+              "genre": "Horror",
+              "count": 13,
+              "share": 0.05327868852459016
+            },
+            {
+              "genre": "Musical",
+              "count": 12,
+              "share": 0.04918032786885246
+            },
+            {
+              "genre": "Animation",
+              "count": 9,
+              "share": 0.036885245901639344
+            },
+            {
+              "genre": "Western",
+              "count": 6,
+              "share": 0.02459016393442623
+            },
+            {
+              "genre": "Mystery",
+              "count": 5,
+              "share": 0.020491803278688523
+            },
+            {
+              "genre": "Documentary",
+              "count": 4,
+              "share": 0.01639344262295082
+            },
+            {
+              "genre": "Fantasy",
+              "count": 2,
+              "share": 0.00819672131147541
+            },
+            {
+              "genre": "Film-Noir",
+              "count": 1,
+              "share": 0.004098360655737705
+            }
+          ],
+          "recommendationGenres": [
+            {
+              "genre": "Drama",
+              "count": 4,
+              "share": 0.4
+            },
+            {
+              "genre": "Comedy",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Adventure",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "Children's",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "Documentary",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "Film-Noir",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "Mystery",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "Romance",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "Thriller",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "War",
+              "count": 1,
+              "share": 0.1
+            }
+          ],
+          "historyMedianPopularity": 106,
+          "recommendationMedianPopularity": 9,
+          "excludedRatedCount": 0,
+          "highRatedHistoryExamples": [
+            {
+              "movieId": 9,
+              "title": "Dead Man Walking (1995)",
+              "rating": 5,
+              "genres": [
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 16,
+              "title": "French Twist (Gazon maudit) (1995)",
+              "rating": 5,
+              "genres": [
+                "Comedy",
+                "Romance"
+              ]
+            },
+            {
+              "movieId": 44,
+              "title": "Dolores Claiborne (1994)",
+              "rating": 5,
+              "genres": [
+                "Drama",
+                "Thriller"
+              ]
+            },
+            {
+              "movieId": 86,
+              "title": "Remains of the Day, The (1993)",
+              "rating": 5,
+              "genres": [
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 87,
+              "title": "Searching for Bobby Fischer (1993)",
+              "rating": 5,
+              "genres": [
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 51,
+              "title": "Legends of the Fall (1994)",
+              "rating": 4,
+              "genres": [
+                "Drama",
+                "Romance",
+                "War",
+                "Western"
+              ]
+            },
+            {
+              "movieId": 75,
+              "title": "Brother Minister: The Assassination of Malcolm X (1994)",
+              "rating": 4,
+              "genres": [
+                "Documentary"
+              ]
+            },
+            {
+              "movieId": 76,
+              "title": "Carlito's Way (1993)",
+              "rating": 4,
+              "genres": [
+                "Crime",
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 241,
+              "title": "Last of the Mohicans, The (1992)",
+              "rating": 4,
+              "genres": [
+                "Action",
+                "Romance",
+                "War"
+              ]
+            },
+            {
+              "movieId": 66,
+              "title": "While You Were Sleeping (1995)",
+              "rating": 4,
+              "genres": [
+                "Comedy",
+                "Romance"
+              ]
+            }
+          ],
+          "top10": [
+            {
+              "movieId": 1450,
+              "title": "Golden Earrings (1947)",
+              "score": 4.565578937530518,
+              "genres": [
+                "Adventure",
+                "Romance"
+              ],
+              "trainingRatings": 2,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1473,
+              "title": "Little Princess, The (1939)",
+              "score": 4.5541768074035645,
+              "genres": [
+                "Children's",
+                "Drama"
+              ],
+              "trainingRatings": 4,
+              "relevantTest": false
+            },
+            {
+              "movieId": 850,
+              "title": "Perfect Candidate, A (1996)",
+              "score": 4.480722904205322,
+              "genres": [
+                "Documentary"
+              ],
+              "trainingRatings": 3,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1592,
+              "title": "Magic Hour, The (1998)",
+              "score": 4.424717903137207,
+              "genres": [
+                "Drama"
+              ],
+              "trainingRatings": 2,
+              "relevantTest": false
+            },
+            {
+              "movieId": 524,
+              "title": "Great Dictator, The (1940)",
+              "score": 4.416087627410889,
+              "genres": [
+                "Comedy"
+              ],
+              "trainingRatings": 39,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1529,
+              "title": "Underground (1995)",
+              "score": 4.414322853088379,
+              "genres": [
+                "War"
+              ],
+              "trainingRatings": 4,
+              "relevantTest": false
+            },
+            {
+              "movieId": 745,
+              "title": "Ruling Class, The (1972)",
+              "score": 4.410655498504639,
+              "genres": [
+                "Comedy"
+              ],
+              "trainingRatings": 14,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1021,
+              "title": "8 1/2 (1963)",
+              "score": 4.409109592437744,
+              "genres": [
+                "Drama"
+              ],
+              "trainingRatings": 29,
+              "relevantTest": false
+            },
+            {
+              "movieId": 865,
+              "title": "Ice Storm, The (1997)",
+              "score": 4.4072980880737305,
+              "genres": [
+                "Drama"
+              ],
+              "trainingRatings": 18,
+              "relevantTest": false
+            },
+            {
+              "movieId": 654,
+              "title": "Chinatown (1974)",
+              "score": 4.394964694976807,
+              "genres": [
+                "Film-Noir",
+                "Mystery",
+                "Thriller"
+              ],
+              "trainingRatings": 129,
+              "relevantTest": false
+            }
+          ]
+        },
+        {
+          "userId": 19,
+          "trainRatings": 16,
+          "validationRatings": 2,
+          "testRatings": 2,
+          "relevantTestMovies": 1,
+          "hitsAt10": 0,
+          "recallAt10": 0,
+          "historyGenres": [
+            {
+              "genre": "Comedy",
+              "count": 10,
+              "share": 0.5555555555555556
+            },
+            {
+              "genre": "Drama",
+              "count": 10,
+              "share": 0.5555555555555556
+            },
+            {
+              "genre": "Action",
+              "count": 4,
+              "share": 0.2222222222222222
+            },
+            {
+              "genre": "Romance",
+              "count": 4,
+              "share": 0.2222222222222222
+            },
+            {
+              "genre": "Adventure",
+              "count": 3,
+              "share": 0.16666666666666666
+            },
+            {
+              "genre": "Horror",
+              "count": 2,
+              "share": 0.1111111111111111
+            },
+            {
+              "genre": "Thriller",
+              "count": 2,
+              "share": 0.1111111111111111
+            },
+            {
+              "genre": "Children's",
+              "count": 1,
+              "share": 0.05555555555555555
+            },
+            {
+              "genre": "Musical",
+              "count": 1,
+              "share": 0.05555555555555555
+            },
+            {
+              "genre": "Sci-Fi",
+              "count": 1,
+              "share": 0.05555555555555555
+            },
+            {
+              "genre": "War",
+              "count": 1,
+              "share": 0.05555555555555555
+            }
+          ],
+          "recommendationGenres": [
+            {
+              "genre": "Comedy",
+              "count": 5,
+              "share": 0.5
+            },
+            {
+              "genre": "Action",
+              "count": 3,
+              "share": 0.3
+            },
+            {
+              "genre": "Drama",
+              "count": 3,
+              "share": 0.3
+            },
+            {
+              "genre": "Children's",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Horror",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Crime",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "Fantasy",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "Romance",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "Sci-Fi",
+              "count": 1,
+              "share": 0.1
+            }
+          ],
+          "historyMedianPopularity": 193.5,
+          "recommendationMedianPopularity": 7,
+          "excludedRatedCount": 0,
+          "highRatedHistoryExamples": [
+            {
+              "movieId": 4,
+              "title": "Get Shorty (1995)",
+              "rating": 4,
+              "genres": [
+                "Action",
+                "Comedy",
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 153,
+              "title": "Fish Called Wanda, A (1988)",
+              "rating": 4,
+              "genres": [
+                "Comedy"
+              ]
+            },
+            {
+              "movieId": 211,
+              "title": "M*A*S*H (1970)",
+              "rating": 4,
+              "genres": [
+                "Comedy",
+                "War"
+              ]
+            },
+            {
+              "movieId": 8,
+              "title": "Babe (1995)",
+              "rating": 5,
+              "genres": [
+                "Children's",
+                "Comedy",
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 202,
+              "title": "Groundhog Day (1993)",
+              "rating": 4,
+              "genres": [
+                "Comedy",
+                "Romance"
+              ]
+            },
+            {
+              "movieId": 325,
+              "title": "Crash (1996)",
+              "rating": 4,
+              "genres": [
+                "Drama",
+                "Thriller"
+              ]
+            },
+            {
+              "movieId": 310,
+              "title": "Rainmaker, The (1997)",
+              "rating": 4,
+              "genres": [
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 258,
+              "title": "Contact (1997)",
+              "rating": 4,
+              "genres": [
+                "Drama",
+                "Sci-Fi"
+              ]
+            },
+            {
+              "movieId": 319,
+              "title": "Everyone Says I Love You (1996)",
+              "rating": 4,
+              "genres": [
+                "Comedy",
+                "Musical",
+                "Romance"
+              ]
+            },
+            {
+              "movieId": 887,
+              "title": "Eve's Bayou (1997)",
+              "rating": 4,
+              "genres": [
+                "Drama"
+              ]
+            }
+          ],
+          "top10": [
+            {
+              "movieId": 263,
+              "title": "Steel (1997)",
+              "score": 5.251453876495361,
+              "genres": [
+                "Action"
+              ],
+              "trainingRatings": 18,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1087,
+              "title": "Bloodsport 2 (1995)",
+              "score": 4.843647480010986,
+              "genres": [
+                "Action"
+              ],
+              "trainingRatings": 8,
+              "relevantTest": false
+            },
+            {
+              "movieId": 375,
+              "title": "Showgirls (1995)",
+              "score": 4.771548271179199,
+              "genres": [
+                "Drama"
+              ],
+              "trainingRatings": 12,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1254,
+              "title": "Gone Fishin' (1997)",
+              "score": 4.737596035003662,
+              "genres": [
+                "Comedy"
+              ],
+              "trainingRatings": 7,
+              "relevantTest": false
+            },
+            {
+              "movieId": 353,
+              "title": "Deep Rising (1998)",
+              "score": 4.731251239776611,
+              "genres": [
+                "Action",
+                "Horror",
+                "Sci-Fi"
+              ],
+              "trainingRatings": 6,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1336,
+              "title": "Kazaam (1996)",
+              "score": 4.7176079750061035,
+              "genres": [
+                "Children's",
+                "Comedy",
+                "Fantasy"
+              ],
+              "trainingRatings": 6,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1104,
+              "title": "C'est arriv� pr�s de chez vous (1992)",
+              "score": 4.7126145362854,
+              "genres": [
+                "Comedy",
+                "Crime",
+                "Drama"
+              ],
+              "trainingRatings": 3,
+              "relevantTest": false
+            },
+            {
+              "movieId": 791,
+              "title": "Baby-Sitters Club, The (1995)",
+              "score": 4.712567329406738,
+              "genres": [
+                "Children's"
+              ],
+              "trainingRatings": 7,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1052,
+              "title": "Dracula: Dead and Loving It (1995)",
+              "score": 4.6516313552856445,
+              "genres": [
+                "Comedy",
+                "Horror"
+              ],
+              "trainingRatings": 10,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1100,
+              "title": "What Happened Was... (1994)",
+              "score": 4.630296230316162,
+              "genres": [
+                "Comedy",
+                "Drama",
+                "Romance"
+              ],
+              "trainingRatings": 6,
+              "relevantTest": false
+            }
+          ]
+        }
+      ],
+      "catalogue": {
+        "moviesAppearingInAnyTop10": 671,
+        "mostRecommended": [
+          {
+            "movieId": 1449,
+            "title": "Pather Panchali (1955)",
+            "listCount": 272,
+            "listShare": 0.28844114528101805,
+            "trainingRatings": 7
+          },
+          {
+            "movieId": 1500,
+            "title": "Santa with Muscles (1996)",
+            "listCount": 237,
+            "listShare": 0.2513255567338282,
+            "trainingRatings": 2
+          },
+          {
+            "movieId": 1450,
+            "title": "Golden Earrings (1947)",
+            "listCount": 219,
+            "listShare": 0.23223753976670203,
+            "trainingRatings": 2
+          },
+          {
+            "movieId": 1463,
+            "title": "Boys, Les (1997)",
+            "listCount": 186,
+            "listShare": 0.19724284199363734,
+            "trainingRatings": 3
+          },
+          {
+            "movieId": 963,
+            "title": "Some Folks Call It a Sling Blade (1993)",
+            "listCount": 185,
+            "listShare": 0.19618239660657477,
+            "trainingRatings": 34
+          },
+          {
+            "movieId": 64,
+            "title": "Shawshank Redemption, The (1994)",
+            "listCount": 161,
+            "listShare": 0.17073170731707318,
+            "trainingRatings": 255
+          },
+          {
+            "movieId": 1158,
+            "title": "Fille seule, La (A Single Girl) (1995)",
+            "listCount": 140,
+            "listShare": 0.14846235418875928,
+            "trainingRatings": 3
+          },
+          {
+            "movieId": 543,
+            "title": "Mis�rables, Les (1995)",
+            "listCount": 131,
+            "listShare": 0.13891834570519618,
+            "trainingRatings": 14
+          },
+          {
+            "movieId": 1269,
+            "title": "Love in the Afternoon (1957)",
+            "listCount": 117,
+            "listShare": 0.12407211028632026,
+            "trainingRatings": 9
+          },
+          {
+            "movieId": 484,
+            "title": "Maltese Falcon, The (1941)",
+            "listCount": 112,
+            "listShare": 0.11876988335100742,
+            "trainingRatings": 111
+          }
+        ]
+      },
+      "manualCheck": {
+        "userId": 1,
+        "movieId": 1450,
+        "title": "Golden Earrings (1947)",
+        "userVector": [
+          -0.04788084700703621,
+          0.007275726646184921,
+          -0.14566263556480408,
+          -0.027726978063583374,
+          0.27352195978164673,
+          0.34036022424697876,
+          0.4764174818992615,
+          -0.20762817561626434,
+          -0.29443129897117615,
+          -0.4571533203125,
+          -0.11155331879854202,
+          -0.19759175181388855,
+          0.10023558884859085,
+          -0.11276940256357193,
+          -0.1672552227973938,
+          -0.1671592742204666
+        ],
+        "itemVector": [
+          0.1766068935394287,
+          0.1734066605567932,
+          -0.1889445036649704,
+          -0.3553449213504791,
+          0.8465999364852905,
+          0.06987611204385757,
+          0.5966746807098389,
+          0.07387802004814148,
+          0.33883702754974365,
+          -0.7123351097106934,
+          -0.8744295835494995,
+          -0.4305080771446228,
+          0.1332663744688034,
+          0.05567224323749542,
+          0.20591607689857483,
+          -0.2954670786857605
+        ],
+        "products": [
+          -0.008456087649949318,
+          0.0012616594608390042,
+          0.02752215437932337,
+          0.009852640839290494,
+          0.2315636737784743,
+          0.023783049164754377,
+          0.2842662488968273,
+          -0.015339158520737417,
+          -0.09976422616100322,
+          0.32564636057941243,
+          0.09754552210057366,
+          0.0850648451330347,
+          0.013358033518597323,
+          -0.006278125609266216,
+          -0.03444053931923641,
+          0.049390062429153225
+        ],
+        "dot": 0.9849761130200876,
+        "globalMean": 3.5806026199776437,
+        "unclampedScore": 4.565578732997731,
+        "clampedPrediction": 4.565578792424848,
+        "displayedScore": 4.565578937530518
+      },
+      "tfNumTensors": 27
+    },
+    {
+      "label": "default-repeat",
+      "config": {
+        "factors": 16,
+        "epochs": 20,
+        "learningRate": 0.01,
+        "regularization": 0.05,
+        "batchSize": 64,
+        "seed": 20261016
+      },
+      "durationSeconds": 41.00269999998808,
+      "history": [
+        {
+          "epoch": 1,
+          "trainRMSE": 0.8829628470349585,
+          "valRMSE": 1.0256105604904577
+        },
+        {
+          "epoch": 2,
+          "trainRMSE": 0.7994922964072045,
+          "valRMSE": 1.0041722045576893
+        },
+        {
+          "epoch": 3,
+          "trainRMSE": 0.7542914557793216,
+          "valRMSE": 1.0049108087997551
+        },
+        {
+          "epoch": 4,
+          "trainRMSE": 0.7332341687027817,
+          "valRMSE": 1.0121377791523378
+        },
+        {
+          "epoch": 5,
+          "trainRMSE": 0.7230501493259278,
+          "valRMSE": 1.0183522506950464
+        },
+        {
+          "epoch": 6,
+          "trainRMSE": 0.71617286399922,
+          "valRMSE": 1.0204869610422103
+        },
+        {
+          "epoch": 7,
+          "trainRMSE": 0.7140752277867652,
+          "valRMSE": 1.0265518443397934
+        },
+        {
+          "epoch": 8,
+          "trainRMSE": 0.7097758769511042,
+          "valRMSE": 1.025482348018142
+        },
+        {
+          "epoch": 9,
+          "trainRMSE": 0.7058360709738156,
+          "valRMSE": 1.0306838244231007
+        },
+        {
+          "epoch": 10,
+          "trainRMSE": 0.7036635985109538,
+          "valRMSE": 1.0263475004244431
+        },
+        {
+          "epoch": 11,
+          "trainRMSE": 0.7039054989149213,
+          "valRMSE": 1.035100510733995
+        },
+        {
+          "epoch": 12,
+          "trainRMSE": 0.7031059474483013,
+          "valRMSE": 1.0273052832070368
+        },
+        {
+          "epoch": 13,
+          "trainRMSE": 0.701148816422894,
+          "valRMSE": 1.0280463423395274
+        },
+        {
+          "epoch": 14,
+          "trainRMSE": 0.6994887954681649,
+          "valRMSE": 1.0339340191934552
+        },
+        {
+          "epoch": 15,
+          "trainRMSE": 0.6998490417716466,
+          "valRMSE": 1.0308033525017906
+        },
+        {
+          "epoch": 16,
+          "trainRMSE": 0.697999370476294,
+          "valRMSE": 1.0293680416166142
+        },
+        {
+          "epoch": 17,
+          "trainRMSE": 0.6993202689865478,
+          "valRMSE": 1.0293119310005343
+        },
+        {
+          "epoch": 18,
+          "trainRMSE": 0.6998185297208916,
+          "valRMSE": 1.0344951317858382
+        },
+        {
+          "epoch": 19,
+          "trainRMSE": 0.6991094578407293,
+          "valRMSE": 1.03213324436269
+        },
+        {
+          "epoch": 20,
+          "trainRMSE": 0.6963764579893266,
+          "valRMSE": 1.0317422096766196
+        }
+      ],
+      "bestCheckpoint": {
+        "epoch": 2,
+        "trainRMSE": 0.7994922964072045,
+        "valRMSE": 1.0041722045576893
+      },
+      "baselineValidationRMSE": 1.1829947710600353,
+      "baselineTestRMSE": 1.2289001371836759,
+      "selectedModelTestRMSE": 1.0502908122290158,
+      "recall": {
+        "overallRecall": 0.013399956978645483,
+        "evaluableUsers": 861,
+        "totalHits": 102,
+        "totalRelevant": 5142,
+        "usersWithHits": 87,
+        "unseenRelevantIds": [
+          913,
+          1106,
+          1130,
+          1458,
+          1498,
+          1525,
+          1613,
+          1625,
+          1645,
+          1646,
+          1650,
+          1651,
+          1674
+        ],
+        "usersWithoutRelevant": [
+          61,
+          76,
+          82,
+          93,
+          102,
+          105,
+          107,
+          108,
+          110,
+          111,
+          120,
+          129,
+          149,
+          155,
+          161,
+          202,
+          209,
+          228,
+          238,
+          240,
+          241,
+          281,
+          284,
+          289,
+          293,
+          302,
+          309,
+          362,
+          380,
+          386,
+          395,
+          399,
+          405,
+          441,
+          443,
+          444,
+          446,
+          453,
+          465,
+          502,
+          510,
+          515,
+          523,
+          544,
+          549,
+          550,
+          572,
+          578,
+          580,
+          584,
+          587,
+          596,
+          631,
+          646,
+          647,
+          651,
+          656,
+          675,
+          685,
+          698,
+          722,
+          723,
+          724,
+          732,
+          733,
+          750,
+          754,
+          769,
+          774,
+          782,
+          809,
+          814,
+          822,
+          824,
+          827,
+          856,
+          873,
+          909,
+          925,
+          926,
+          930,
+          933
+        ]
+      },
+      "data": {
+        "users": 943,
+        "movies": 1682,
+        "ratings": 100000,
+        "sparsity": 0.9369533063577546,
+        "trainRatings": 79619,
+        "validationRatings": 9596,
+        "testRatings": 10785,
+        "trainingMean": 3.5806026199776437,
+        "usersAbsentFromTraining": 0,
+        "moviesAbsentFromTraining": 71,
+        "validationRowsOnUnseenMovies": 35,
+        "testRowsOnUnseenMovies": 53
+      },
+      "userAnalysis": [
+        {
+          "userId": 1,
+          "trainRatings": 217,
+          "validationRatings": 27,
+          "testRatings": 28,
+          "relevantTestMovies": 19,
+          "hitsAt10": 2,
+          "recallAt10": 0.10526315789473684,
+          "historyGenres": [
+            {
+              "genre": "Drama",
+              "count": 93,
+              "share": 0.38114754098360654
+            },
+            {
+              "genre": "Comedy",
+              "count": 81,
+              "share": 0.3319672131147541
+            },
+            {
+              "genre": "Action",
+              "count": 69,
+              "share": 0.2827868852459016
+            },
+            {
+              "genre": "Thriller",
+              "count": 47,
+              "share": 0.19262295081967212
+            },
+            {
+              "genre": "Romance",
+              "count": 39,
+              "share": 0.1598360655737705
+            },
+            {
+              "genre": "Adventure",
+              "count": 38,
+              "share": 0.1557377049180328
+            },
+            {
+              "genre": "Sci-Fi",
+              "count": 37,
+              "share": 0.15163934426229508
+            },
+            {
+              "genre": "Children's",
+              "count": 24,
+              "share": 0.09836065573770492
+            },
+            {
+              "genre": "War",
+              "count": 24,
+              "share": 0.09836065573770492
+            },
+            {
+              "genre": "Crime",
+              "count": 22,
+              "share": 0.09016393442622951
+            },
+            {
+              "genre": "Horror",
+              "count": 13,
+              "share": 0.05327868852459016
+            },
+            {
+              "genre": "Musical",
+              "count": 12,
+              "share": 0.04918032786885246
+            },
+            {
+              "genre": "Animation",
+              "count": 9,
+              "share": 0.036885245901639344
+            },
+            {
+              "genre": "Western",
+              "count": 6,
+              "share": 0.02459016393442623
+            },
+            {
+              "genre": "Mystery",
+              "count": 5,
+              "share": 0.020491803278688523
+            },
+            {
+              "genre": "Documentary",
+              "count": 4,
+              "share": 0.01639344262295082
+            },
+            {
+              "genre": "Fantasy",
+              "count": 2,
+              "share": 0.00819672131147541
+            },
+            {
+              "genre": "Film-Noir",
+              "count": 1,
+              "share": 0.004098360655737705
+            }
+          ],
+          "recommendationGenres": [
+            {
+              "genre": "Comedy",
+              "count": 4,
+              "share": 0.4
+            },
+            {
+              "genre": "Drama",
+              "count": 3,
+              "share": 0.3
+            },
+            {
+              "genre": "Romance",
+              "count": 3,
+              "share": 0.3
+            },
+            {
+              "genre": "Animation",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Documentary",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Crime",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "Thriller",
+              "count": 1,
+              "share": 0.1
+            }
+          ],
+          "historyMedianPopularity": 106,
+          "recommendationMedianPopularity": 9.5,
+          "excludedRatedCount": 0,
+          "highRatedHistoryExamples": [
+            {
+              "movieId": 9,
+              "title": "Dead Man Walking (1995)",
+              "rating": 5,
+              "genres": [
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 16,
+              "title": "French Twist (Gazon maudit) (1995)",
+              "rating": 5,
+              "genres": [
+                "Comedy",
+                "Romance"
+              ]
+            },
+            {
+              "movieId": 44,
+              "title": "Dolores Claiborne (1994)",
+              "rating": 5,
+              "genres": [
+                "Drama",
+                "Thriller"
+              ]
+            },
+            {
+              "movieId": 86,
+              "title": "Remains of the Day, The (1993)",
+              "rating": 5,
+              "genres": [
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 87,
+              "title": "Searching for Bobby Fischer (1993)",
+              "rating": 5,
+              "genres": [
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 51,
+              "title": "Legends of the Fall (1994)",
+              "rating": 4,
+              "genres": [
+                "Drama",
+                "Romance",
+                "War",
+                "Western"
+              ]
+            },
+            {
+              "movieId": 75,
+              "title": "Brother Minister: The Assassination of Malcolm X (1994)",
+              "rating": 4,
+              "genres": [
+                "Documentary"
+              ]
+            },
+            {
+              "movieId": 76,
+              "title": "Carlito's Way (1993)",
+              "rating": 4,
+              "genres": [
+                "Crime",
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 241,
+              "title": "Last of the Mohicans, The (1992)",
+              "rating": 4,
+              "genres": [
+                "Action",
+                "Romance",
+                "War"
+              ]
+            },
+            {
+              "movieId": 66,
+              "title": "While You Were Sleeping (1995)",
+              "rating": 4,
+              "genres": [
+                "Comedy",
+                "Romance"
+              ]
+            }
+          ],
+          "top10": [
+            {
+              "movieId": 1462,
+              "title": "Thieves (Voleurs, Les) (1996)",
+              "score": 4.8804402351379395,
+              "genres": [
+                "Crime",
+                "Drama",
+                "Romance"
+              ],
+              "trainingRatings": 6,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1467,
+              "title": "Saint of Fort Washington, The (1993)",
+              "score": 4.809263706207275,
+              "genres": [
+                "Drama"
+              ],
+              "trainingRatings": 1,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1251,
+              "title": "A Chef in Love (1996)",
+              "score": 4.8022780418396,
+              "genres": [
+                "Comedy"
+              ],
+              "trainingRatings": 8,
+              "relevantTest": false
+            },
+            {
+              "movieId": 694,
+              "title": "Persuasion (1995)",
+              "score": 4.79863166809082,
+              "genres": [
+                "Romance"
+              ],
+              "trainingRatings": 38,
+              "relevantTest": false
+            },
+            {
+              "movieId": 256,
+              "title": "When the Cats Away (Chacun cherche son chat) (1996)",
+              "score": 4.790683269500732,
+              "genres": [
+                "Comedy",
+                "Romance"
+              ],
+              "trainingRatings": 11,
+              "relevantTest": true
+            },
+            {
+              "movieId": 169,
+              "title": "Wrong Trousers, The (1993)",
+              "score": 4.7591552734375,
+              "genres": [
+                "Animation",
+                "Comedy"
+              ],
+              "trainingRatings": 101,
+              "relevantTest": true
+            },
+            {
+              "movieId": 1142,
+              "title": "When We Were Kings (1996)",
+              "score": 4.751642227172852,
+              "genres": [
+                "Documentary"
+              ],
+              "trainingRatings": 34,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1514,
+              "title": "Dream With the Fishes (1997)",
+              "score": 4.727272033691406,
+              "genres": [
+                "Drama"
+              ],
+              "trainingRatings": 4,
+              "relevantTest": false
+            },
+            {
+              "movieId": 850,
+              "title": "Perfect Candidate, A (1996)",
+              "score": 4.685086727142334,
+              "genres": [
+                "Documentary"
+              ],
+              "trainingRatings": 3,
+              "relevantTest": false
+            },
+            {
+              "movieId": 408,
+              "title": "Close Shave, A (1995)",
+              "score": 4.671736240386963,
+              "genres": [
+                "Animation",
+                "Comedy",
+                "Thriller"
+              ],
+              "trainingRatings": 96,
+              "relevantTest": false
+            }
+          ]
+        },
+        {
+          "userId": 19,
+          "trainRatings": 16,
+          "validationRatings": 2,
+          "testRatings": 2,
+          "relevantTestMovies": 1,
+          "hitsAt10": 0,
+          "recallAt10": 0,
+          "historyGenres": [
+            {
+              "genre": "Comedy",
+              "count": 10,
+              "share": 0.5555555555555556
+            },
+            {
+              "genre": "Drama",
+              "count": 10,
+              "share": 0.5555555555555556
+            },
+            {
+              "genre": "Action",
+              "count": 4,
+              "share": 0.2222222222222222
+            },
+            {
+              "genre": "Romance",
+              "count": 4,
+              "share": 0.2222222222222222
+            },
+            {
+              "genre": "Adventure",
+              "count": 3,
+              "share": 0.16666666666666666
+            },
+            {
+              "genre": "Horror",
+              "count": 2,
+              "share": 0.1111111111111111
+            },
+            {
+              "genre": "Thriller",
+              "count": 2,
+              "share": 0.1111111111111111
+            },
+            {
+              "genre": "Children's",
+              "count": 1,
+              "share": 0.05555555555555555
+            },
+            {
+              "genre": "Musical",
+              "count": 1,
+              "share": 0.05555555555555555
+            },
+            {
+              "genre": "Sci-Fi",
+              "count": 1,
+              "share": 0.05555555555555555
+            },
+            {
+              "genre": "War",
+              "count": 1,
+              "share": 0.05555555555555555
+            }
+          ],
+          "recommendationGenres": [
+            {
+              "genre": "Action",
+              "count": 4,
+              "share": 0.4
+            },
+            {
+              "genre": "Horror",
+              "count": 4,
+              "share": 0.4
+            },
+            {
+              "genre": "Children's",
+              "count": 3,
+              "share": 0.3
+            },
+            {
+              "genre": "Adventure",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Comedy",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Sci-Fi",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Thriller",
+              "count": 2,
+              "share": 0.2
+            },
+            {
+              "genre": "Drama",
+              "count": 1,
+              "share": 0.1
+            },
+            {
+              "genre": "Romance",
+              "count": 1,
+              "share": 0.1
+            }
+          ],
+          "historyMedianPopularity": 193.5,
+          "recommendationMedianPopularity": 12.5,
+          "excludedRatedCount": 0,
+          "highRatedHistoryExamples": [
+            {
+              "movieId": 4,
+              "title": "Get Shorty (1995)",
+              "rating": 4,
+              "genres": [
+                "Action",
+                "Comedy",
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 153,
+              "title": "Fish Called Wanda, A (1988)",
+              "rating": 4,
+              "genres": [
+                "Comedy"
+              ]
+            },
+            {
+              "movieId": 211,
+              "title": "M*A*S*H (1970)",
+              "rating": 4,
+              "genres": [
+                "Comedy",
+                "War"
+              ]
+            },
+            {
+              "movieId": 8,
+              "title": "Babe (1995)",
+              "rating": 5,
+              "genres": [
+                "Children's",
+                "Comedy",
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 202,
+              "title": "Groundhog Day (1993)",
+              "rating": 4,
+              "genres": [
+                "Comedy",
+                "Romance"
+              ]
+            },
+            {
+              "movieId": 325,
+              "title": "Crash (1996)",
+              "rating": 4,
+              "genres": [
+                "Drama",
+                "Thriller"
+              ]
+            },
+            {
+              "movieId": 310,
+              "title": "Rainmaker, The (1997)",
+              "rating": 4,
+              "genres": [
+                "Drama"
+              ]
+            },
+            {
+              "movieId": 258,
+              "title": "Contact (1997)",
+              "rating": 4,
+              "genres": [
+                "Drama",
+                "Sci-Fi"
+              ]
+            },
+            {
+              "movieId": 319,
+              "title": "Everyone Says I Love You (1996)",
+              "rating": 4,
+              "genres": [
+                "Comedy",
+                "Musical",
+                "Romance"
+              ]
+            },
+            {
+              "movieId": 887,
+              "title": "Eve's Bayou (1997)",
+              "rating": 4,
+              "genres": [
+                "Drama"
+              ]
+            }
+          ],
+          "top10": [
+            {
+              "movieId": 590,
+              "title": "Hellraiser: Bloodline (1996)",
+              "score": 5.078543663024902,
+              "genres": [
+                "Action",
+                "Horror",
+                "Sci-Fi"
+              ],
+              "trainingRatings": 9,
+              "relevantTest": false
+            },
+            {
+              "movieId": 901,
+              "title": "Mr. Magoo (1997)",
+              "score": 5.034073829650879,
+              "genres": [
+                "Comedy"
+              ],
+              "trainingRatings": 8,
+              "relevantTest": false
+            },
+            {
+              "movieId": 398,
+              "title": "Super Mario Bros. (1993)",
+              "score": 5.015254020690918,
+              "genres": [
+                "Action",
+                "Adventure",
+                "Children's",
+                "Sci-Fi"
+              ],
+              "trainingRatings": 15,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1089,
+              "title": "Speed 2: Cruise Control (1997)",
+              "score": 4.982739448547363,
+              "genres": [
+                "Action",
+                "Romance",
+                "Thriller"
+              ],
+              "trainingRatings": 26,
+              "relevantTest": false
+            },
+            {
+              "movieId": 681,
+              "title": "Wishmaster (1997)",
+              "score": 4.942544460296631,
+              "genres": [
+                "Horror"
+              ],
+              "trainingRatings": 20,
+              "relevantTest": false
+            },
+            {
+              "movieId": 406,
+              "title": "Thinner (1996)",
+              "score": 4.904266834259033,
+              "genres": [
+                "Horror",
+                "Thriller"
+              ],
+              "trainingRatings": 33,
+              "relevantTest": false
+            },
+            {
+              "movieId": 112,
+              "title": "Flipper (1996)",
+              "score": 4.895659446716309,
+              "genres": [
+                "Adventure",
+                "Children's"
+              ],
+              "trainingRatings": 14,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1052,
+              "title": "Dracula: Dead and Loving It (1995)",
+              "score": 4.863317012786865,
+              "genres": [
+                "Comedy",
+                "Horror"
+              ],
+              "trainingRatings": 10,
+              "relevantTest": false
+            },
+            {
+              "movieId": 726,
+              "title": "Fluke (1995)",
+              "score": 4.844559669494629,
+              "genres": [
+                "Children's",
+                "Drama"
+              ],
+              "trainingRatings": 9,
+              "relevantTest": false
+            },
+            {
+              "movieId": 1407,
+              "title": "Specialist, The (1994)",
+              "score": 4.833547592163086,
+              "genres": [
+                "Action"
+              ],
+              "trainingRatings": 11,
+              "relevantTest": false
+            }
+          ]
+        }
+      ],
+      "catalogue": {
+        "moviesAppearingInAnyTop10": 779,
+        "mostRecommended": [
+          {
+            "movieId": 1449,
+            "title": "Pather Panchali (1955)",
+            "listCount": 204,
+            "listShare": 0.2163308589607635,
+            "trainingRatings": 7
+          },
+          {
+            "movieId": 169,
+            "title": "Wrong Trousers, The (1993)",
+            "listCount": 200,
+            "listShare": 0.21208907741251326,
+            "trainingRatings": 101
+          },
+          {
+            "movieId": 850,
+            "title": "Perfect Candidate, A (1996)",
+            "listCount": 177,
+            "listShare": 0.18769883351007424,
+            "trainingRatings": 3
+          },
+          {
+            "movieId": 114,
+            "title": "Wallace & Gromit: The Best of Aardman Animation (1996)",
+            "listCount": 165,
+            "listShare": 0.17497348886532343,
+            "trainingRatings": 57
+          },
+          {
+            "movieId": 487,
+            "title": "Roman Holiday (1953)",
+            "listCount": 154,
+            "listShare": 0.1633085896076352,
+            "trainingRatings": 56
+          },
+          {
+            "movieId": 1500,
+            "title": "Santa with Muscles (1996)",
+            "listCount": 152,
+            "listShare": 0.16118769883351008,
+            "trainingRatings": 2
+          },
+          {
+            "movieId": 64,
+            "title": "Shawshank Redemption, The (1994)",
+            "listCount": 137,
+            "listShare": 0.14528101802757157,
+            "trainingRatings": 255
+          },
+          {
+            "movieId": 480,
+            "title": "North by Northwest (1959)",
+            "listCount": 130,
+            "listShare": 0.1378579003181336,
+            "trainingRatings": 151
+          },
+          {
+            "movieId": 1142,
+            "title": "When We Were Kings (1996)",
+            "listCount": 126,
+            "listShare": 0.13361611876988336,
+            "trainingRatings": 34
+          },
+          {
+            "movieId": 74,
+            "title": "Faster Pussycat! Kill! Kill! (1965)",
+            "listCount": 125,
+            "listShare": 0.1325556733828208,
+            "trainingRatings": 2
+          }
+        ]
+      },
+      "manualCheck": {
+        "userId": 1,
+        "movieId": 1462,
+        "title": "Thieves (Voleurs, Les) (1996)",
+        "userVector": [
+          -0.13490964472293854,
+          0.060598794370889664,
+          -0.4743316173553467,
+          0.1724247932434082,
+          0.2249072641134262,
+          0.353410005569458,
+          0.5943683981895447,
+          0.2221212387084961,
+          -0.366758793592453,
+          -0.5032650828361511,
+          -0.18451754748821259,
+          -0.1867486834526062,
+          0.07027727365493774,
+          0.2597528100013733,
+          0.037412531673908234,
+          -0.23150737583637238
+        ],
+        "itemVector": [
+          0.27261337637901306,
+          0.11587659269571304,
+          -0.6448866128921509,
+          0.25833529233932495,
+          0.2940245270729065,
+          0.6537492871284485,
+          0.41663557291030884,
+          -0.2033403515815735,
+          -0.45112481713294983,
+          -0.17882540822029114,
+          -0.38066866993904114,
+          -0.6036549210548401,
+          -0.2958337962627411,
+          -0.062368687242269516,
+          -0.3425898253917694,
+          -0.3926740884780884
+        ],
+        "products": [
+          -0.03677817375401338,
+          0.00702198181316685,
+          0.3058901101039453,
+          0.04454340936908352,
+          0.06612825196621142,
+          0.23104153920509418,
+          0.24763501809948352,
+          -0.045166210772720206,
+          0.16545399369129665,
+          0.08999658388119336,
+          0.07024004938275175,
+          0.11273176176667832,
+          -0.020790392656335754,
+          -0.016200441767276308,
+          -0.012817152693628264,
+          0.09090694778250175
+        ],
+        "dot": 1.2998372754174325,
+        "globalMean": 3.5806026199776437,
+        "unclampedScore": 4.880439895395076,
+        "clampedPrediction": 4.880439851613691,
+        "displayedScore": 4.8804402351379395
+      },
+      "tfNumTensors": 27
+    }
+  ],
+  "reproducibility": {
+    "historyMaxAbsDifference": 0,
+    "identical": true
+  }
+}
